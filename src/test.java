@@ -19,11 +19,27 @@ public class test {
        search.sendKeys("vitz");
        search.submit();
        
-       List<WebElement> cars = driver.findElements(By.className("ui-item"));
-	   cars.get(0).click();
-	   WebElement item_prop = driver.findElement(By.tagName("dt"));
-	   System.out.println(item_prop.getText());
-	   
+       System.out.println("First Car Info");
+       carInfo(0,driver);
+       driver.navigate().back();
+       System.out.println("");
+       System.out.println("Second Car Info");
+       carInfo(1, driver);
+ 
+	}
+	
+	public static void carInfo(int carNo,WebDriver driver)
+	{
+		List<WebElement> cars = driver.findElements(By.className("ui-item"));
+		   cars.get(carNo).click();
+		   List<WebElement> item_props = driver.findElements(By.tagName("dt"));
+		   List<WebElement> item_prop_detail = driver.findElements(By.tagName("dd"));
+		   int i = 0; 
+		   for(WebElement w : item_props)
+		   {
+			   
+			   System.out.println(w.getText()+item_prop_detail.get(i++).getText());
+		   }
 	}
 
 }
