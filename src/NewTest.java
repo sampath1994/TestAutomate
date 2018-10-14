@@ -15,7 +15,7 @@ public class NewTest {
   @Test
   public void main() {
      WebElement search = driver.findElement(By.xpath("//*[@id=\"query\"]"));
-     search.sendKeys("benz");
+     search.sendKeys("vitz 2018");
      search.submit();
      
      System.out.println("First Car Info");
